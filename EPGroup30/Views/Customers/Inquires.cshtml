@@ -1,0 +1,103 @@
+﻿@model EPGroup30.Models.Inquiry
+@{
+    ViewData["Title"] = "Inquires Page";
+}
+<style>
+    body {
+        background-color: white;
+        color: #7e7364;
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+
+    .form-container {
+        background-color: white;
+        border: 1px solid #ccc3b7;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin: 100px auto; /* Adjust this margin for separation */
+        width: 80%; /* Adjust the width as needed */
+    }
+
+    .input-container {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .input-container label {
+        width: 200px;
+    }
+
+    .input-container input,
+    .select-container select {
+        border: 0;
+        border-bottom: 1px solid #b39b82;
+        background: transparent;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #b39b82;
+    }
+
+        button.btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #7e7364;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 12px;
+        font-weight: bold;
+        
+    }
+
+    button.btn:hover {
+        background-color: #b39b82;
+    }
+</style>
+<div class="form-container">
+    <div class="form-content">
+    <h1 style="text-align: center;">Contact Us</h1>
+    <form method="post" asp-action="Enquiry" asp-controller="Customers" enctype="multipart/form-data">
+        <div class="input-container">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="input-container">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Enquiry"></label>
+            <input asp-for="Enquiry" />
+            <span asp-validation-for="Enquiry" class="text-danger"></span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Guests"></label>
+            <input asp-for="Guests" type="number" />
+            <span asp-validation-for="Guests" class="text-danger"></span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Contact"></label>
+            <input asp-for="Contact" />
+            <span asp-validation-for="Contact" class="text-danger"></span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Date"></label>
+            <input asp-for="Date" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+        
+        <button class="btn mb-sm-auto" onclick="return confirm('Confirm');">Contact Us</button>
+    </form>
+</div>

@@ -1,0 +1,76 @@
+﻿@model EPGroup30.Models.admintable
+
+@{
+    ViewData["Title"] = "Index";
+    
+    Layout = "~/Views/Shared/AdminRegistration.cshtml";
+}
+
+<hr />
+
+
+    <style>
+    body {
+        background-color: beige;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        min-height: 100vh;
+        width: 90%; /* Set the width of the form container */
+    }
+
+    .form-content {
+        max-width: 500px; /* Adjust the maximum width of the form */
+        width: 100%; /* Set the width of the form content */
+        padding: 50px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .btn-register {
+        margin-top: 10px;
+    }
+
+    /* Adjust the width of the input fields */
+    .form-control {
+        width: 100%; /* Set the width of the input fields */
+    }
+</style>
+
+<div class="form-container">
+    <h1>Admin Registration</h1>
+    <div class="form-content">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AdminEmail" class="control-label"></label>
+                <input asp-for="AdminEmail" class="form-control" />
+                <span asp-validation-for="AdminEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminPassword" class="control-label"></label>
+                <input asp-for="AdminPassword" class="form-control" type="password" />
+                <span asp-validation-for="AdminPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-primary btn-register" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

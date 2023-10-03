@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "newsletterSubscription";
+}
+<style>
+	button {
+		border: none;
+		outline: none;
+		padding: 10px 20px;
+		border-radius: 50px;
+		color: #333;
+		background: #AAA;
+		margin-bottom: 50px;
+		box-shadow: 0 3px 20px 0 #0000003b;
+	}
+
+		button:hover {
+			cursor: pointer;
+		}</style>
+
+<center>
+    <h1>newsletterSubscription</h1>
+    <p>
+        To confirm your subscription, Please check your email account.Click the conform button to confirm
+    </p>
+
+    <p>
+        Subscription succesfull transaction ID: @ViewBag.responseID
+    </p>
+
+    <form method="POST" asp-action="Index" asp-controller="SNS">
+        <button type="submit" class="btn-success">Back to subscription page</button>
+
+
+
+    </form>
+</center>
+

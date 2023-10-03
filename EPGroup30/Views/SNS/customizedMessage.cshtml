@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "customizedMessage";
+    Layout = "~/Views/Shared/_AdminNavLayout.cshtml";
+}
+<style>
+    button {
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        color: #333;
+        background: #AAA;
+        margin-bottom: 50px;
+        box-shadow: 0 3px 20px 0 #0000003b;
+    }
+
+        button:hover {
+            cursor: pointer;
+        }</style>
+<center>
+    <h1>Admin Customized Message Broadcast to users: </h1>
+    <br /> <hr /><br />
+
+    <form asp-action="broadcastMessage" asp-controller="SNS">
+        <label> Email subject title</label>
+
+        &nbsp; &nbsp;
+        <input type="text" name="subjecttitle"
+               placeholder="e.g.Close shop on 24th August 2023" />
+        <br /><br />
+        <label>Message content:</label>
+        
+
+<textarea cols="150" rows="10" name="messageContent"></textarea>
+        <button type="submit" class="btn-dark">Send Message to users now</button>
+    </form>
+</center>

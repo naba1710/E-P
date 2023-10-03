@@ -1,0 +1,84 @@
+﻿@model VenuesCooperate
+@{
+    ViewData["Title"] = "AddNewCooperateVenue";
+    Layout = "~/Views/Shared/_AdminNavLayout.cshtml";
+}
+
+<center>
+<h1>Add New Form</h1>
+<br />
+<hr />
+<br />
+
+   <form method="post" asp-action="processInsertCooperate" asp-controller="Admin" enctype="multipart/form-data">
+        <input type="hidden" asp-for="VenueS3Key" />
+        <input type="hidden" asp-for="VenueURL" />
+        <table border="1">
+            <tr>
+                <th><label asp-for="VenueName"></label></th>
+                <td>
+                    <input asp-for="VenueName" />
+                    <span asp-validation-for="VenueName"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <th><label asp-for="VenueCategory"></label></th>
+                <td>
+                    <select asp-for="VenueCategory">
+                        <option value="Wedding">Wedding</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Graduation">Graduation</option>
+                        <option value="Corporate Events">Corporate Events</option>
+                    </select>
+                    <span asp-validation-for="VenueCategory"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <th><label asp-for="VenueBookedDate"></label></th>
+                <td>
+                    <input asp-for="VenueBookedDate" />
+                    <span asp-validation-for="VenueBookedDate"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <th><label asp-for="VenueDetails"></label></th>
+                <td>
+                    <input asp-for="VenueDetails" />
+                    <span asp-validation-for="VenueDetails"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="VenuePrice"></label></th>
+                <td>
+                    <input asp-for="VenuePrice" />
+                    <span asp-validation-for="VenuePrice"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="VenueAddPrice"></label></th>
+                <td>
+                    <input asp-for="VenueAddPrice" />
+                    <span asp-validation-for="VenueAddPrice"></span>
+                </td>
+            </tr>
+            <tr>
+    <th><label asp-for="@Model.VenueURL"></label></th>
+    <td>
+        <input type="file" name="imagefiles" accept="image/*" multiple />
+        <span asp-validation-for="@Model.VenueURL" class="text-danger"></span>
+    </td>
+</tr>
+
+
+
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <button class="btn mb-sm-auto">Add New Venue</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>

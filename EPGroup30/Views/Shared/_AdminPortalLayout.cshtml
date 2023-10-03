@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include common CSS and scripts -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EPGroup30 Admin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+    <!-- Set the layout for the view --> 
+    <!-- Add specific CSS for the AdminHome page -->
+    <link rel="stylesheet" href="~/css/admin-home.css" asp-append-version="true" />
+
+    <!-- Include common scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</head>
+<body>
+
+            <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: beige;
+            }
+
+            .container {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .btn-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 40px;
+                margin: 35px;
+            }
+
+            .btn-box {
+                width: 300px;
+                height: 150px;
+                background-color: #3498db;
+                color: #fff;
+                text-align: center;
+                line-height: 200px;
+                font-size: 20px;
+                border-radius: 10px;
+                transition: background-color 0.3s;
+            }
+
+                .btn-box:hover {
+                    background-color: hotpink;
+                }
+
+            .dropdown-box {
+                position: relative;
+                display: inline-block;
+            }
+
+                .dropdown-box .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background-color: white;
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                    border-radius: 12px;
+                }
+
+                .dropdown-box:hover .dropdown-content {
+                    display: block;
+                }
+
+            .dropdown-content a {
+                display: block;
+                padding: 2px;
+                text-decoration: none;
+                color: hotpink;
+                transition: background-color 0.3s;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: hotpink;
+                }
+        </style>
+        <div class="container">
+            <h1 style="color: #333;">Admin Dashboard</h1>
+
+            <div class="btn-container">
+                <div class="dropdown-box">
+                    <div class="btn-box">
+                        Manage Venues and Decor
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" asp-controller="Admin" asp-action="ManageVenues">Wedding Venues</a>
+                                <a class="dropdown-item" asp-controller="Admin" asp-action="ManageBirthdayVenues">Birthday Venues</a>
+                                <a class="dropdown-item" asp-controller="Admin" asp-action="ManageGraduationVenues">Graduation Venues</a>
+                                <a class="dropdown-item" asp-controller="Admin" asp-action="ManageCooperateVenues">Corporate Venues</a>
+                    </div>
+                </div>
+                <div class="btn-box">
+                <a asp-area="" style="text-decoration: none; color: #fff;" asp-controller="SNS" asp-action="customizedMessage">Broadcast Message</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="btn-container">
+            <div class="btn-box">
+                <a asp-area="" style="text-decoration: none; color: #fff;" asp-controller="Admin" asp-action="AdminViewCustomers">View Customers Data</a>
+            </div>
+            <div class="btn-box">
+                <a asp-area="" style="text-decoration: none; color: #fff;" asp-controller="Admin" asp-action="AdminViewBookings">View Customers Bookings</a>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+
+<div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - EPGroup30 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+
+

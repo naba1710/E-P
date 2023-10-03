@@ -1,0 +1,35 @@
+﻿@model List<Inquiry>
+
+@{
+    ViewData["Title"] = "View Customers Inquires";
+    Layout = "~/Views/Shared/_AdminNavLayout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Enquiry</th>
+            <th>No of Guests</th>
+            <th>Contact</th>
+            <th>Date</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Name</td>
+                <td>@booking.Email</td>
+                <td>@booking.Enquiry</td>
+                <td>@booking.Guests</td>
+                <td>@booking.Contact</td>
+                <td>@booking.Date</td>
+            </tr>
+        }
+    </tbody>
+</table>

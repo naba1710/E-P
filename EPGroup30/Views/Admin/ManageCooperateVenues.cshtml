@@ -1,0 +1,61 @@
+﻿@model List<VenuesCooperate>
+@{
+    ViewData["Title"] = "ManageCooperateVenues";
+    Layout = "~/Views/Shared/_AdminNavLayout.cshtml";
+}
+
+<h1>Manage Cooperate Venues</h1>
+
+<br />
+<hr />
+<a asp-action="AddNewCooperateVenue" asp-controller="Admin">Add New Venue</a>
+<br />
+<hr />
+<br />
+<center>
+    <br />
+    <form>
+        <label>Enter venue name for searching purpose: </label>&nbsp;&nbsp;
+        <input type="text" name="searchString" placeholder="e.g R" />
+        <button class="btn-dark">Search venue</button>
+    </form>
+    <br />
+    @if (Model.Count != 0)
+    {
+        <table border="3" style="margin:auto; border-collapse:collapse; width:80%;">
+            <tr style="background-color:white; color:black; text-align:center;">
+                <th>Venue ID</th>
+                <th>Venue Name</th>
+                <th>Venue Category</th>
+                <th>Venue Details</th>
+                <th>Venue Price</th>
+                <th>Venue Additional Price</th>
+                <th>Venue Picture</th>
+                <th>Edit Action</th>
+                <th>Delete Action</th>
+            </tr>
+            @foreach (VenuesCooperate venues in Model)
+            {
+                <tr>
+                    <td style="text-align:center;">@venues.VenueID</td>
+                    <td>@venues.VenueName</td>
+                    <td>@venues.VenueCategory</td>
+                    <td>@venues.VenueDetails</td>
+                    <td>@venues.VenuePrice</td>
+                    <td>@venues.VenueAddPrice</td>
+                    <td style="text-align:center;"><img src="@venues.VenueURL" width="200px" height="200px" /></td>
+                    <td>
+                        <form method="post">
+                            <button type="submit" asp-action="editpagecooperate" asp-controller="Admin" asp-route-fid="@venues.VenueID" >Edit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post">
+                            <button type="submit" asp-action="deletepagecooperate" asp-controller="Admin" asp-route-fid="@venues.VenueID" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+</center>

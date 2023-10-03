@@ -1,0 +1,63 @@
+﻿@model List<VenuesBirthday>
+@{
+    ViewData["Title"] = "ManageBirthdayVenues";
+    
+}
+
+<style>
+    .venue-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .venue-card {
+        border: 1px solid #ddd;
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .venue-image {
+        max-width: 500px; /* Adjust the maximum width of the image */
+        max-height: 500px; /* Adjust the maximum height of the image */
+        margin-right: 10px;
+    }
+
+    .venue-details {
+        flex-grow: 1;
+    }
+        .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #7e7364;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #b39b82;
+    }
+</style>
+
+<h1>Birthday Venues</h1>
+
+<div class="venue-container">
+    @foreach (var venue in Model)
+    {
+        <div class="venue-card">
+            <img class="venue-image" src="https://duh692km4kipg.cloudfront.net/@Html.Raw(System.Net.WebUtility.UrlEncode(venue.VenueS3Key))" alt="@venue.VenueName" />
+            <div class="venue-details">
+                <h3>@venue.VenueName</h3>
+                <p>@venue.VenueDetails</p>
+                <p>Price: $@venue.VenuePrice</p>
+                <a href="@Url.Action("Bookings", "Customers")" class="btn">Book Now</a>
+            </div>
+        </div>
+    }
+</div>
